@@ -1,16 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import PupProvider from "/home/nicholas/week14/d4/react-context-pups-starter/src/App.js";
+import ThemeProvider from './context/ThemeContext';
 
-
+function Root() {
+  return (
+    <ThemeProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+}
 
 ReactDOM.render(
-
-    <PupProvider>
-      <App />
-    </PupProvider>
- ,
-  document.getElementById("root")
+  <React.StrictMode>
+    <Root />
+  </React.StrictMode>,
+  document.getElementById('root')
 );
